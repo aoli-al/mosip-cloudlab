@@ -1,0 +1,3 @@
+[submodule "mosip-infra"]
+	path = mosip-infra
+	url = https://github.com/mosip/mosip-infra
