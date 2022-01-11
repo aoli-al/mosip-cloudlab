@@ -1,4 +1,5 @@
 - hosts: all
-  command: "cat /home/mosipuser/.ssh/authorized_keys >> /root/.ssh/authorized_keys"
-  become: yes
-  become_user: su
+  tasks:
+    - name: update
+      become: yes
+      shell: cat /users/aoli/.ssh/authorized_keys >> /root/.ssh/authorized_keys
