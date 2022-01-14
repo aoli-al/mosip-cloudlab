@@ -32,7 +32,7 @@ ansible-playbook -i hosts.ini update_root.yml
 sudo -i -u mosipuser bash << EOF
 chmod 600 .ssh/authorized_keys
 chmod 600 .ssh/id_rsa
-https://github.com/aoli-al/mosip-infra
+git clone https://github.com/aoli-al/mosip-infra
 cd mosip-infra
 git checkout 1.1.5.5
 cd deployment/sandbox-v2
