@@ -37,5 +37,9 @@ cd mosip-infra
 git checkout 1.1.5.5
 cd deployment/sandbox-v2
 mv ~/hosts.ini ./
-sed -i ''  "s/DOMAIN_NAME/$(hostname)/g" group_vars/all.yml
+sed -i "s/DOMAIN_NAME/$(hostname)/g" group_vars/all.yml
+./preinstall.sh
+source ~/.bashrc
+echo "foo" > vaultpass.txt
+ansible-playbook -i hosts.ini --vault-password-file vaultpass.txt -e @secrets.yml site.yml
 EOF
