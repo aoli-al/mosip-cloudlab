@@ -17,6 +17,7 @@ sudo yum install -y nginx-mod-stream htop byobu
 sudo useradd nfsnobody
 
 sudo /usr/local/etc/emulab/mkextrafs.pl /srv
+sudo chmod 777 /srv
 
 sudo -i -u mosipuser bash << EOF
 mkdir ~/.ssh
