@@ -43,7 +43,8 @@ cd mosip-infra
 git checkout 1.1.5.5
 cd deployment/sandbox-v2
 mv ~/hosts.ini ./
-sed -i "s/DOMAIN_NAME/$(wget -qO - https://api.ipify.org)/g" group_vars/all.yml
+sed -i "s/DOMAIN_NAME/$(hostname)/g" group_vars/all.yml
+sed -i "s/DOMAIN_NAME/$(wget -qO - https://api.ipify.org)/g" hosts.ini
 ./preinstall.sh
 source ~/.bashrc
 echo "foo" > vaultpass.txt
