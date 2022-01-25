@@ -31,7 +31,7 @@ sudo cp $home/.ssh/id_rsa.pub /home/mosipuser/.ssh/authorized_keys && sudo chown
 cd mosip-cloudlab
 
 sed -i "s/user/$(whoami)/g" hosts.ini 
-sed -i "s/update_root/$(whoami)/g" hosts.ini 
+sed -i "s/username/$(whoami)/g" update_root.yml
 
 ansible-playbook -i hosts.ini update_root.yml
 
