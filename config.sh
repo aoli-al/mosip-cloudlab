@@ -28,8 +28,6 @@ home=$HOME
 sudo cp $home/.ssh/id_rsa /home/mosipuser/.ssh/id_rsa && sudo chown mosipuser:mosipuser /home/mosipuser/.ssh/id_rsa
 sudo cp $home/.ssh/id_rsa.pub /home/mosipuser/.ssh/authorized_keys && sudo chown mosipuser:mosipuser /home/mosipuser/.ssh/authorized_keys
 
-git clone https://github.com/aoli-al/mosip-cloudlab
-
 cd mosip-cloudlab
 
 sed -i "s/user/$(whoami)/g" hosts.ini 
