@@ -1,4 +1,5 @@
 chmod 600 ~/.ssh/id_rsa
+ssh-keygen -f ~/.ssh/id_rsa -y > ~/.ssh/id_rsa.pub
 
 
 sudo useradd mosipuser
@@ -15,18 +16,25 @@ sudo yum install -y git
 sudo yum install -y nginx-mod-stream htop byobu
 sudo useradd nfsnobody
 
+sudo /usr/local/etc/emulab/mkextrafs.pl /srv
 
 sudo -i -u mosipuser bash << EOF
 mkdir ~/.ssh
 chmod 700 ~/.ssh
 EOF
-sudo cp /users/aoli/.ssh/id_rsa /home/mosipuser/.ssh/id_rsa && sudo chown mosipuser:mosipuser /home/mosipuser/.ssh/id_rsa
-sudo cp /users/aoli/.ssh/authorized_keys /home/mosipuser/.ssh/authorized_keys && sudo chown mosipuser:mosipuser /home/mosipuser/.ssh/authorized_keys
-sudo cp /users/aoli/hosts_root.ini /home/mosipuser/hosts.ini && sudo chown mosipuser:mosipuser /home/mosipuser/hosts.ini
+
+home=$HOME
+
+sudo cp $home/.ssh/id_rsa /home/mosipuser/.ssh/id_rsa && sudo chown mosipuser:mosipuser /home/mosipuser/.ssh/id_rsa
+sudo cp $home/.ssh/id_rsa.pub /home/mosipuser/.ssh/authorized_keys && sudo chown mosipuser:mosipuser /home/mosipuser/.ssh/authorized_keys
 
 git clone https://github.com/aoli-al/mosip-cloudlab
+
 cd mosip-cloudlab
-mv ~/hosts_aoli.ini hosts.ini
+
+sed -i "s/user/$(whoami)/g" hosts.ini 
+sed -i "s/update_root/$(whoami)/g" hosts.ini 
+
 ansible-playbook -i hosts.ini update_root.yml
 
 sudo -i -u mosipuser bash << EOF
