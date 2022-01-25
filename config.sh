@@ -3,7 +3,7 @@ ssh-keygen -f ~/.ssh/id_rsa -y > ~/.ssh/id_rsa.pub
 
 
 sudo useradd mosipuser
-echo -e "mosippwd\nmosippwd" | sudo passwd mosipuser
+echo -e "alcmw,m\nalcmw,m" | sudo passwd mosipuser
 sudo usermod -aG wheel mosipuser
 echo "mosipuser ALL=(ALL)  ALL" | sudo EDITOR='tee -a' visudo
 echo "%mosipuser  ALL=(ALL)  NOPASSWD:ALL" | sudo EDITOR='tee -a' visudo
