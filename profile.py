@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 """Deploy Mosip in Cloudlab"""
 
 import geni.portal as portal
