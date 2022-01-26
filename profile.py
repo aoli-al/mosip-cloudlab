@@ -2,7 +2,6 @@
 
 import geni.portal as portal
 import geni.rspec.pg as pg
-import geni.rspec.emulab as emulab
 
 # Create a portal object,
 pc = portal.Context()
@@ -15,7 +14,9 @@ interfaces = []
 
 node = request.RawPC("console")
 node.disk_image = CENTOS_ARN
-node.hardware_type = "d430"
+node.ram = 16 * 1024
+node.cores = 4
+node.disk = 256
 interfaces.append(node.addInterface('interface-0'))
 
 node = request.XenVM("mzmaster")
