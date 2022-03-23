@@ -1,0 +1,9 @@
+--- kubernetes.repo.bak 2022-03-23 11:42:08.534044393 -0600
++++ kubernetes.repo     2022-03-23 11:42:14.489024502 -0600
+@@ -3,5 +3,5 @@
+ baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+ enabled=1
+ gpgcheck=1
+-repo_gpgcheck=1
++repo_gpgcheck=0
+ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg

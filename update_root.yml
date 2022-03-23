@@ -1,5 +1,8 @@
 - hosts: all
   tasks:
+    - name: patch yum 
+      become: yes
+      shell: patch -u /etc/yum.repos.d/kubernetes.repo -i kube.patch
     - name: remove kubelet
       become: yes
       shell: yum remove -y kubelet kubectl kubeadm

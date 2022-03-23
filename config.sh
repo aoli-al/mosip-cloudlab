@@ -2,6 +2,7 @@ chmod 600 ~/.ssh/id_rsa
 ssh-keygen -f ~/.ssh/id_rsa -y > ~/.ssh/id_rsa.pub
 
 
+sudo patch -u /etc/yum.repos.d/kubernetes.repo -i kube.patch
 sudo useradd mosipuser
 echo -e "alcmw,m\nalcmw,m" | sudo passwd mosipuser
 sudo usermod -aG wheel mosipuser
