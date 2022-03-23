@@ -2,7 +2,7 @@ chmod 600 ~/.ssh/id_rsa
 ssh-keygen -f ~/.ssh/id_rsa -y > ~/.ssh/id_rsa.pub
 
 
-sudo sed 's/repo_gpgcheck=1/repo_gpgcheck=0/g' /etc/yum.repos.d/kubernetes.repo
+sudo sed 's/repo_gpgcheck=1/repo_gpgcheck=0/g' /etc/yum.repos.d/kubernetes.repo > /etc/yum.repos.d/kubernetes.repo
 sudo useradd mosipuser
 echo -e "alcmw,m\nalcmw,m" | sudo passwd mosipuser
 sudo usermod -aG wheel mosipuser

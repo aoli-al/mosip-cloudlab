@@ -1,8 +1,5 @@
 - hosts: all
   tasks:
-    - name: patch yum 
-      become: yes
-      shell: sed 's/repo_gpgcheck=1/repo_gpgcheck=0/g' /etc/yum.repos.d/kubernetes.repo 
     - name: remove kubelet
       become: yes
       shell: yum remove -y kubelet kubectl kubeadm
